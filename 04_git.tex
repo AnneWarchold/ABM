@@ -1,0 +1,904 @@
+% The Slide Definitions
+\input{templates/slide_definitions}
+
+% Author and Course information
+\input{templates/slide_information}
+
+\newtoggle{Diplom} \togglefalse{Diplom}
+\newtoggle{Bachelor} \togglefalse{Bachelor}
+\toggletrue{\abschluss}
+
+\newcommand{\git}[0]{\texttt{git} }
+
+% Presentation title
+\title{Git}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Gliederung}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents
+\end{frame}
+
+
+\section{Mathe-Prüfung}
+\begin{frame}{Nikolausklausur}
+    ... die erste Mathe-Klausur naht!
+    \begin{itemize}
+        \item \textbf{Termin:} \texttt{10.12.2020 16:40 Uhr}
+	\item \textbf{Einschreibung:} endet am \texttt{7.12.2020}
+        \item Hausaufgaben bringen Bonuspunkte!
+        \item zeitig (am besten \emph{vorgestern}) mit Lernen anfangen
+        \item lernt zusammen!
+	\item \textbf{Hilfsmittel:} ein A4-Blatt ein- oder beidseitig handschriftlich beschrieben
+    \end{itemize}
+
+    \vfill
+
+    \centering \LARGE \alert{\textbf{Eine 2.0 jetzt sichert euch das Modul!}}
+    % TODO: Größe so lassen?
+\end{frame}
+
+%\section{Prüfungs- und Studienordnung}
+%\input{\abschluss-Ordnung}
+
+%\section{Allgemeine Prüfungstipps}
+
+%\begin{frame}{Lerntyp finden}
+%	Habt ihr bestimmt schon in der Schule gemacht - wenn nicht:
+%	\begin{itemize}
+%		\item eigenes Lernverhalten reflektieren: Was klappt bei mir gut?
+%		\item Google liefert zahlreiche Infos und Selbsttests
+%	\end{itemize}
+%	Die vier klassischen Lerntypen:
+%	\begin{description}[kommunikativ]
+%		\item [auditiv] Lernen durch Hören und Erzählen%, ruhige Umgebung ist wichtig
+%		\item [visuell] Lernen durch Schreiben und mit Hilfe von Übersichten% und Bildern, ordentliche Umgebung ist wichtig
+%		\item [motorisch] Lernen durch Anfassen (z.B. Modelle) und Selbermachen %Bewegung beim Lernen (an der Tafel, Prüfungssituation nachstellen)
+%		\item [kommunikativ] Lernen durch Interaktion und Austausch mit Anderen %Diskutieren und Fragen Stellen
+%	\end{description}
+%	\alert{Zu wissen, wie euer Hirn \glqq{}tickt\grqq{}, macht euch das Lernen leichter!}
+%\end{frame}
+
+%\begin{frame}{Hilfe! In meiner WG ist immer Party, wo soll ich lernen?!}
+%	\vspace{.5cm}
+%	Mögliche Orte zum Lernen und Arbeiten (gemeinsam oder allein):
+%	\begin{itemize}
+%		\item \alert{Seminarräume} (vor allem am WE/in der vorlesungsfreien Zeit)\\
+%		$\longrightarrow$ ggf. vom Wachpersonal aufschließen lassen
+%		\item freie \alert{PC-Pools} (Öffnungszeiten des ZIH beachten)
+%		\item verstreute Tische in den \alert{oberen Etagen des APB}
+%		\item in der \alert{SLUB} (Gruppenarbeitsräume, ruhige Ecken oder belebterer Eingangsbereich)
+%	\end{itemize}
+%		\vspace{1cm}
+%		\cleanchapterquote{Und wenn du da ein kleines bisschen flüsterst, wirst du von Leuten mit Blicken angestarrt, die dich TÖTEN!!! ... Ist geil!}{{\small Anonymer FSRling}}{{\small über den Zentralen Lesesaal der SLUB}}
+%\end{frame}
+
+%\begin{frame}{Und wann sollte ich anfangen mit Lernen?}
+%	\centering \LARGE \alert{Am ersten Tag der Vorlesungszeit!}\\
+%	\Large Das Studium ist ein Vollzeitjob:\\[.7cm]
+%	\flushleft\normalsize
+%	\begin{description}
+%		\item [1 LP] = 30 h Arbeitszeit
+%		\item [1 Semester] = 30 LP und somit 900 h Arbeitszeit
+%		\item [Vorlesungs- und Kernprüfungszeit] ~\\19 Wochen (ohne Weihnachten) im WiSe 18/19, \\17 Wochen (ohne Pfingsten) im SoSe 19
+%	\end{description}
+%	\vspace{.5cm}
+%	$\Longrightarrow$ \alert{47,4 h} bzw. sogar \alert{52,9 h} Arbeitszeit pro Woche!
+%\end{frame}
+
+%\begin{frame}
+%	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/what}
+%	
+%	\Huge What?!
+%\end{frame}
+
+%\begin{frame}
+%	\centering\Large\alert{Zum Glück braucht man für die meisten Module weniger Zeit}\\[.3cm]
+%	\flushleft\normalsize
+%	Dennoch: Unterschätzt den Aufwand nicht, und fangt nicht erst zwei Wochen vor der Klausur mit Lernen an!\\[.7cm]
+%	\alert{Tipps:}
+%	\begin{itemize}
+%		\item Altbekannt, aber dennoch zu selten umgesetzt: Lernpläne, Zeitpläne und ToDo-Listen schreiben
+%		\item TimeTracker (z.B. aTimeLogger für Android) nutzen und Ziel setzen, wie viele Stunden pro Woche man mit Uni verbringen will
+%	\end{itemize}
+%\end{frame}
+
+%\begin{frame}{Hilfsmittel in Prüfungen}
+%	Im Bezug auf erlaubte Hilfsmittel ist jede Prüfung anders.
+%	\begin{description}
+%		\item [Mathe] (beide Prüfungen)
+%		\begin{itemize}
+%			\item ein A4-Blatt, beidseitig \textbf{hand}beschrieben
+%			\item \underline{kein} Taschenrechner
+%		\end{itemize}
+%		\item [AuD] gar nichts
+%		\item [EMI] nicht-programmierbarer Taschenrechner
+%		\item [TGI] ein A4-Blatt, beidseitig bedruckt
+%		\item [RA] je Vorlesung ein beidseitig bedrucktes A4-Blatt,\\aber Prüfung immer erst im Sommersemester % TODO: Wird das dieses Semester angeboten? (ist für diese Folie aber erstmal egal, die Hilfsmittel-Info ist dennoch sinnvoll)
+%	\end{description}
+	
+%	\centering\alert{Alle Angaben ohne Gewähr! ;)}
+%	\note{
+%		\begin{itemize}
+%			\item Darauf hinweisen, dass sich sowas auch immer mal wieder ändert, z.B. Mathe: mal alles, mal nur ein Blatt
+%		\end{itemize}}
+%\end{frame}
+
+%\begin{frame}{Korrektoren sind auch nur Menschen}
+%	\centering \LARGE Geht zu den \alert{Prüfungseinsichten}! \\[.7cm]
+%
+%	\normalsize Die Korrektoren sind auch nur Menschen. Wer in wenigen Tagen mehrere hundert Klausuren korrigiert, kann auch mal einen Fehler machen oder etwas übersehen.
+%\end{frame}
+
+
+\section{Git}
+\subsection{Warum git?}
+
+\begin{frame}
+	\centering \Huge \alert{Was ist git?}\\[.7cm]
+	\normalsize
+	\begin{itemize}
+		\item Ein Versionsverwaltungssystem!
+	\end{itemize}
+	\centering \Huge \alert{Und wozu ist das gut?}\\[.7cm]
+	\normalsize
+	\begin{itemize}
+		\item Um den Überblick über verschiedene Versionen deines Projektes zu behalten
+		\item Zum einfacheren Zusammenarbeiten mehrerer Personen an einem gemeinsamen Projekt
+		\begin{itemize}
+			\item Deshalb im Robolab und SWP genutzt
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering \Huge \textbf{Warum sollte ich git nutzen?} \\[.7cm]
+
+	\normalsize Was spricht gegen Dropbox? Oder Facebook?
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.9\textwidth, keepaspectratio]{assets/04_git/codesalat}
+
+	\uncover<2->{\Large \textbf{\alert{Das.}}}
+\end{frame}
+
+\begin{frame}{Warum Versionierung?}
+	\begin{itemize}
+		\item Dropbox ist (für solche Zwecke) unbenutzbar
+		\begin{itemize}
+			\item man überschreibt gegenseitig Änderungen oder hat 20 Dateien à la \\
+				\centering \texttt{(In Konflikt stehende Version von xx am dd.mm.yyyy)}
+		\end{itemize}
+		\item \flushleft Verlust des Überblicks bei 20 Kopien der selben Datei mit anderem Namen
+	\end{itemize}
+	\pause{}
+	\vfill
+	\textbf{\alert{Lösung:}}
+	\begin{itemize}
+		\item immer selbe Datei bearbeiten
+		\item Zwischenstand irgendwo speichern, mit Info, was geändert wurde (zum rückgängig machen)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Wie das aussehen könnte...}
+	\centering \includegraphics[width=\textwidth, keepaspectratio]{assets/04_git/git-diff}
+
+	\textcolor{green}{grün:} hinzugefügte Zeilen
+	% TODO: evtl. pädagogisch wertvolle Anmerkungen zum Bildinhalt hier
+\end{frame}
+
+\begin{frame}{weitere Vorteile}
+	% \includegraphics[width=.8\textwidth, keepaspectratio]{assets/04_git/branch}
+	\begin{itemize}
+		\item man sieht, wer Fehler ins Programm eingeschleust hat
+		\item zurück springen auf jeden beliebigen vorherigen Stand \\
+			$\rightarrow$ jede Änderung \emph{einzeln} rückgängig machbar
+		\item auch online speicherbar
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Programme zur Versionsverwaltung}
+	Bekannte Programme:
+	\begin{itemize}
+		\item SVN
+		\item Mercurial
+		\item Git \uncover<2->{- \textbf{zurzeit das Beliebteste}}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.6\textwidth, keepaspectratio]{assets/04_git/git-logo} \\[.5cm]
+\end{frame}
+
+% kleine praktische Einführung in Git, also packt die Laptops aus \o/
+
+
+% kann übersprungen werden, wenn schon alle git haben
+\subsection{Installation}
+
+\begin{frame}
+	\centering \Huge \textbf{Installation}
+\end{frame}
+
+\begin{frame}{Installation - Linux}
+	\centering \textbf{Ubuntu/Debian} \\
+	\texttt{\$ sudo apt-get install git}
+
+	\vfill
+
+	\textbf{Arch Linux} \\
+	\texttt{\$ sudo pacman -Sy git}
+
+	\vfill
+
+	\textbf{Fedora} \\
+	\texttt{\$ dnf -y install git}
+\end{frame}
+
+\begin{frame}{Installation - macOS}
+	\centering
+	\textbf{Über Homebrew} (empfohlen)\\
+	\texttt{\$ brew install git}
+
+	\vfill
+
+	\textbf{Download von der Webseite} \\
+	\url{https://git-scm.com}
+\end{frame}
+
+\begin{frame}{Installation - Windows}
+	\centering
+	\textbf{Installation des Linux Subsystems} \\
+	Danach, wie bei der gewählten Linuxdistibution
+\end{frame}
+
+
+\begin{frame}{Clients}
+	Es gibt eine Reihe von grafischen Clients, die auf dem Kommandozeilenprogramm aufsetzen.
+	Empfehlenswert sind:
+	\begin{itemize}
+		\item GitKraken
+		\item SourceTree (viele Konfigurationsmöglichkeiten)
+		\item GitHub Desktop
+		\item IDE 
+	\end{itemize}
+
+	\vfill
+	\alert{Aaaaber:} Lieber Kommandozeilen-Client nutzen, um die Funktionsweise zu lernen.
+\end{frame}
+
+
+\subsection{Einführung}
+\begin{frame}
+	\centering \Huge \textbf{Hands on!} \\[.7cm]
+	\normalsize Zeit für eine praktische Einführung!
+\end{frame}
+
+\begin{frame}{Vorbereitung}
+	\begin{itemize}
+		\item [$\Box$] \git installiert?
+		\item [$\Box$] neuen (leeren) Ordner anlegen
+		\item [$\Box$] Linux Subsystem (Windows) oder Terminal öffnen \\
+			per \alert{\texttt{cd pfad/zum/ordner}} in den neuen Ordner wechseln
+	\end{itemize}
+\end{frame}
+\begin{frame}{Navigation in einem Terminal}
+	\centering \textbf{noch nie eine Shell benutzt?}
+	\pause
+	\begin{itemize}
+		\item \alert{\texttt{cd mein\_ordner}} wechsle in \texttt{mein\_ordner}
+		\item \alert{\texttt{mkdir mein\_ordner}} erstelle \texttt{mein\_ordner}
+		\item \alert{\texttt{ls}} liste mir alle Datein/Ordner im aktuellen Verzeichnis
+		\item \alert{\texttt{touch meine\_datei}} erstelle \texttt{meine\_datei}
+		\item \alert{\texttt{cat meine\_datei}} zeige den Inhalt von \texttt{meine\_datei} an
+		\item \alert{\texttt{rm meine\_datei}} lösche \texttt{meine\_datei}
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{Initiales Setup}
+	\centering \textbf{Noch nie \git benutzt?}
+	\vfill
+	\pause{}
+	
+	\centering \large \textbf{\alert{\texttt{git config --global user.name "[name]"}}} \\[.2cm]
+	\normalsize Setzt Namen, der unter dem Commit stehen wird.
+	
+	\vfill
+	\pause{}
+	
+	\large \textbf{\alert{\texttt{git config --global user.email "[email]"}}} \\[.2cm]
+	\normalsize Mailadresse des Users (\textbf{wichtig:} sollte GitHub-Adresse sein!)
+	
+	\vfill
+	\pause{}
+	
+	\begin{lstlisting}[basicstyle=\scriptsize\ttfamily]
+[felix@Samaritan] $ git config --global user.name "Max Mustermann"
+[felix@Samaritan] $ git config --global user.email "mustermann@ifsr.de"
+\end{lstlisting}
+\end{frame}
+
+% TODO: Hier Grundprinzip des "lagers" noch mal erklären?
+
+\begin{frame}[fragile]{Und am Anfang war... }
+	\centering \Large \textbf{\texttt{\alert{git init}}}\\[.2cm]
+	%\vfill
+	\normalsize Erstellt ein neues Repository \emph{(Lager)} im aktuellen Ordner.
+	\pause{}
+
+	\vfill
+	\begin{lstlisting}
+[felix@Samaritan] $ git init
+Initialized empty Git repository in /Users/felix/test/.git/
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}{Und was ist jetzt passiert?}
+	\begin{itemize}
+		\item \texttt{.git}-Ordner wurde angelegt
+		\item in ihm geschieht \glqq{}Magie\grqq{} hinter den Kulissen
+		\item dient als Ablage für gespeicherte Änderungen an Dateien
+		\item Einstellungen für Repository liegen hier
+	\end{itemize}
+
+	In diesem Ordner müsst ihr für gewöhnlich nichts ändern.
+\end{frame}
+
+% Theorie-Exkurs
+\begin{frame}
+	\centering \Large \textbf{Ein kleiner Blick unter die Haube...}
+\end{frame}
+
+\begin{frame}{\git - Workflow}
+	Intern organisiert \git die überwachten Dateien in 3 Bereichen:
+	
+	\begin{description}[Working Directory]
+		\item [Working Directory] Da liegen alle bearbeiteten Dateien aus eurem Projekt-Ordner drin.
+		\item [Staging Area] Wollt ihr euren Zwischenstand speichern, könnt ihr einzelne Änderungen (einzelne Dateien oder sogar Zeilen) dafür auswählen. Diese landen dann hier.
+		\item [Repository] Nachdem die ausgewählten Änderungen aus der Staging Area committed wurden, liegen sie als Gesamtpaket (Commit) hier.
+	\end{description}
+\end{frame}
+
+\begin{frame}<1-3>[label=workflow]{\git - Workflow}
+	\centering
+	%TODO: Make my colors pretty!
+	\begin{tikzpicture}
+	\tikzstyle{block} = [font=\bfseries, text = white, rounded corners=2pt, minimum height = 2.5em, text width=9em, text centered]
+		\node[block, fill=red] (dir) at (3.5,6) {Working Direktory};
+		\uncover<2->{
+			\node (add) at (0,5) {\texttt{git add}};
+			\node[block, fill=orange] (area) at (3.5,4) {Staging Area};
+			\path [draw] (dir) -| (add);
+			\path [draw, -latex'] (add) |- (area.+175);
+			\node (reset) at (7,5) {\texttt{git reset}};
+			\path [draw] (area) -| (reset);
+			\path [draw, -latex'] (reset) |- (dir);
+		}
+		\uncover<3->{
+			\node (commit) at (0,3) {\texttt{git commit}};
+			\node[block, fill=blue] (repo) at (3.5,2) {Repository};
+			\path[draw] (area.-175) -| (commit);
+			\path[draw, -latex'] (commit) |- (repo.+175);
+		}
+		\only<4->{
+			\node[block, fill=green](remote) at (3.5,0) {Remote Repository};
+		\uncover<5->{
+			\node (push) at (0,1) {\texttt{git push}};
+			\path[draw] (repo.-175) -| (push);
+			\path[draw, -latex'] (push) |- (remote);
+			\node (pull) at (7,1) {\texttt{git pull}};
+			\path[draw] (remote) -| (pull);
+			\path[draw, -latex'] (pull) |- (repo);
+		}}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+	\centering \Large \textbf{Zurück zur Praxis!}
+\end{frame}
+
+\begin{frame}[fragile]{Her mit dem Inhalt!}
+	\centering
+	\footnotesize \emph{(Normalerweise kommt jetzt der Teil, an dem ihr programmiert.)} \\
+	\normalsize Erstellt eine Textdatei und schreibt ein paar Zeilen.
+
+%	\vfill
+%	\begin{lstlisting}
+%[felix@Samaritan] $ echo "Hallo Welt! :)" > hallowelt.txt
+%\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Änderungen speichern}
+	\centering Genug Inhalt zusammengekommen? \\
+	Zeit für den \emph{Commit}.
+
+	\vfill
+	\pause{}
+
+	\textbf{Den was...?}
+\end{frame}
+
+\begin{frame}{Commitment leicht gemacht}
+	Ein \alert{Commit} ist der Vorgang, bei dem die geänderten Dateien aus dem Working Tree gespeichert werden.
+
+	Das spielt sich nach dem immer gleichen Schema ab:
+	\begin{enumerate}
+		\item Dateien bearbeiten
+		\item zu speichernde Änderungen auswählen (\alert{add}n oder stagen)
+		\item Änderungen \emph{\alert{commit}ten}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Änderungen speichern (1)}
+	\centering Mit \alert{\texttt{git status}} wird Status des Repositories angezeigt:\\[.7cm]
+
+	\begin{lstlisting}
+[felix@Samaritan] $ git status
+On branch main
+
+Initial commit
+
+§Untracked files:§
+  (use "git add <file>..." to include in what will be committed)
+
+    hallowelt.txt
+
+nothing added to commit but untracked files present (use "°git add°" to track)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Änderungen speichern (2)}
+	\centering Jetzt müssen alle geänderten Dateien \emph{gestaged} werden:
+
+	\Large \textbf{\texttt{\alert{git add [Datei(en)]}}}\\[.7cm]
+
+	\begin{lstlisting}
+[felix@Samaritan] $ git add hallowelt.txt
+\end{lstlisting}
+	\normalsize
+	\pause{}
+
+	\begin{center} Immer überlegen, \emph{welche} Dateien geaddet werden sollen.
+	Passwörter und Access-Token haben in git nichts zu suchen! \end{center}
+\end{frame}
+
+\begin{frame}{Wo stehen wir jetzt?}
+	\centering Probiert doch noch mal \texttt{git status}...
+\end{frame}
+
+\begin{frame}[fragile]{Wo stehen wir jetzt?}
+	\begin{lstlisting}
+[felix@Samaritan] $ git status
+On branch main
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+    ^new file:   hallowelt.txt^
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Zeit, den Sack zu zu machen!}
+	\centering Bleibt nur noch der eigentliche \emph{Commit} übrig!
+
+	\Large \textbf{\texttt{\alert{git commit -m "[Nachricht]"}}}\\[.7cm]
+
+	\begin{lstlisting}
+[felix@Samaritan] $ git commit -m "Add hallowelt.txt"
+
+[main (root-commit) 6386d2f] Add hallowelt.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hallowelt.txt
+\end{lstlisting}
+	\normalsize
+	
+	\begin{center} Glückwunsch! Euer erster Commit! :) \end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{description}[Tipp:]
+		\item [\alert{Tipp:}] Verwendet \emph{aussagekräftige} Commit-Nachrichten, aus denen man sofort herauslesen kann, welche Änderungen ihr vorgenommen habt!
+	\end{description}
+	\vfill
+	\textbf{Negativ-Beispiel:}\\[.2cm]
+	\centering \includegraphics[width=.85\textwidth, keepaspectratio]{assets/04_git/bad-commit-msg}
+\end{frame}
+
+\begin{frame}
+	\centering\Large\textbf{Nett. Aber alles immer noch lokal. Wie funktioniert jetzt die Zusammenarbeit?}\\[.7cm]
+	\pause
+	\alert{Mit Remote Repositories!}
+\end{frame}
+
+\againframe<3->{workflow}
+
+\begin{frame}{Ab in die Cloud! - Befehle}
+	\centering \Large \textbf{\alert{\texttt{git push [Remote] [Branch]}}} \\[.2cm]
+	\normalsize lädt eure Commits hoch (man nennt es auch \emph{pushen})
+	\vfill
+
+	\Large \textbf{\alert{\texttt{git pull [Remote] [Branch]}}} \\[.2cm]
+	\normalsize lädt fremde Änderungen runter (man nennt es auch \emph{pullen})
+	\vfill
+	\pause{}
+	Aber dazu brauchen wir erstmal ein Remote Repository...
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/01}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/02}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/03}
+\end{frame}
+
+\begin{frame}[fragile]{Ab in die Cloud! (2)}
+	\begin{lstlisting}
+[felix@Samaritan] $ git remote add origin https://github.com/Feliix42/cooles-test-repo.git
+[felix@Samaritan] $ git push -u origin main
+Username for 'https://github.com': Feliix42
+Password for 'https://Feliix42@github.com':
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 869 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Feliix42/cooles-test-repo.git
+ * [new branch]      main -> main
+Branch main set up to track remote branch main from origin.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/04}
+
+	Es funktioniert!
+\end{frame}
+
+\begin{frame}<1-2>[label=collaboration]{Zum Abschluss: Kollaboration!}
+	\begin{itemize}
+		\item<1-> findet euch zu zweit zusammen
+		\item<2-> Partner 1 fügt Partner 2 zu seinem Repository hinzu
+		\item<3-> Partner 2 klont das Repository von Partner 1
+		\item<4-> Bearbeitet beide \texttt{hallowelt.txt} \\
+			(fügt z.B. den Satz \glqq{}Ich heiße [...]\grqq{} hinzu und löscht den Rest.)
+		\item<5-> Einer von euch committed und pusht seine Änderungen \\
+			(\texttt{git add [...]}, \texttt{git commit -m "[...]"}, \texttt{git push origin main})
+		\item<6-> Dann macht der andere Partner das gleiche
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/05}
+\end{frame}
+
+\againframe<2-3>{collaboration}
+
+\begin{frame}
+	\centering \includegraphics[width=.95\textwidth, keepaspectratio]{assets/04_git/github/06}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{lstlisting}
+[harold@Machine] $ git clone https://github.com/Feliix42/cooles-test-repo.git
+Cloning into 'cooles-test-repo'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+Checking connectivity... done.
+\end{lstlisting}
+\end{frame}
+
+\againframe<3-6>{collaboration}
+
+\begin{frame}[fragile]
+	\begin{lstlisting}
+[felix@Samaritan] $ git commit -m "Ich bin Felix"
+
+[main 50126f1] Ich bin Felix
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[felix@Samaritan] $ git push origin main
+To https://github.com/Feliix42/cooles-test-repo.git
+ °! [rejected]        main -> main (fetch first)°
+error: failed to push some refs to 'https://github.com/Feliix42/cooles-test-repo.git'
+hint: Updates were rejected because the remote contains work
+hint: that you do not have locally. This is usually caused
+hint: by another repository pushing to the same ref. You may
+hint: want to first integrate the remote changes (e.g.,
+hint: 'git pull ...') before pushing again. See the 'Note
+hint: about fast-forwards' in 'git push --help' for details.
+\end{lstlisting}
+\begin{center}\textbf{Huch.}\end{center}
+\end{frame}
+
+\begin{frame}
+	\centering Euer \texttt{push} wurde zurückgewiesen, weil es neuere Änderungen gibt, die ihr noch nicht auf eurem PC habt.
+	\vfill
+
+	\textbf{Lösung:}
+	
+	\texttt{git pull origin main}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{lstlisting}
+[felix@Samaritan] $ git pull origin main
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/Feliix42/cooles-test-repo
+   6386d2f..90188bf  main     -> origin/main
+Auto-merging hallowelt.txt
+°CONFLICT° (content): °Merge conflict° in hallowelt.txt
+Automatic merge failed; fix conflicts and then commit the result
+\end{lstlisting}
+
+\pause{}
+\begin{center} \textbf{} Glückwunsch! Euer erster \emph{Merge-Conflict!} \end{center}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics{assets/04_git/git-conflict}
+\end{frame}
+
+\begin{frame}{Okay... Und jetzt?}
+	\centering \includegraphics[width=.9\textwidth, keepaspectratio]{assets/04_git/merge-conflict}
+	\vfill
+
+	Überschneiden sich die Änderungen von zwei Commits, die \git nicht automatisch beheben kann, entsteht ein \textbf{Merge Conflict}, der von Hand behoben werden muss.
+\end{frame}
+
+\begin{frame}{Wie?}
+	\centering Öffnet \texttt{hallowelt.txt} im Texteditor. \\
+	Das sollte etwa so aussehen:
+
+
+	\pause{}
+	\includegraphics[width=.9\textwidth, keepaspectratio, trim=0 400 300 0, clip]{assets/04_git/resolve_this}
+\end{frame}
+
+\begin{frame}<1-3>[label=resolve]{Was sehe ich da?}
+	\begin{itemize}
+		\item oberhalb des \texttt{=======} stehen eure Änderungen (markiert mit \emph{HEAD})
+		\item darunter die Änderung des Konflikte verursachenden Commits (markiert mit der \emph{Commit-ID})
+	\end{itemize}
+
+	\pause{}
+	\begin{itemize}
+		\item kompletter Abschnitt zwischen \texttt{<<<<} und \texttt{>>>>} muss jetzt von Hand gemerged werden
+		\item löscht die Änderungen, die weg sollen und fasst alles so zusammen, dass es euch passt
+		\item<3-> seht euch mit \texttt{git status} den Zwischenstand an
+		\item<4-> addet die \glqq{}reparierte\grqq{} Datei
+		\item<4-> commited das Ergebnis
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{lstlisting}
+[felix@Samaritan] $ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+    §both modified:   hallowelt.txt§
+
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+\end{frame}
+
+\againframe<3-4>{resolve}
+
+\begin{frame}{Merge Konflikte sind kein Beinbruch!}
+	\begin{columns}[onlytextwidth]
+		\begin{column}{0.6\textwidth}
+			Generell gilt: Ruhe bewahren!
+			\begin{itemize}
+				\item Merge Konflikte immer mit Sorgfalt beheben, besonders wenn große Code-Segmente betroffen sind!
+				\item Ein Konflikt kann sich über mehrere Blöcke erstrecken
+				\item schaut euch betroffene Dateien genau an!
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\flushright \includegraphics[width=0.85\textwidth, keepaspectratio]{assets/04_git/git}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\centering \Large \alert{Glückwunsch!}
+	\vfill
+
+	\normalsize Ihr könnt jetzt:
+	\begin{itemize}
+		\item Euer Projekt mit \git verwalten
+		\item euer Repository mit GitHub über mehrere PCs und User synchronisieren
+		\item Merge Konflikte beheben
+		\item fremde Projekte klonen und mitmachen!
+	\end{itemize}
+	Ihr seid für eure ersten Schritte mit \git gewappnet!
+\end{frame}
+
+\begin{frame}
+	\centering \Large \alert{Doch mit git ist noch viel mehr möglich!}
+	\normalsize
+	\vfill
+	\begin{columns}[onlytextwidth]
+		\hspace*{-.05\textwidth}
+		\begin{column}{0.6\textwidth}
+			\centering \includegraphics[width=0.85\textwidth, keepaspectratio]{assets/04_git/yoda}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Werft zum Beispiel mal ein Blick auf folgende Dinge:
+			\begin{itemize}
+				\item die \texttt{.gitignore}-Datei
+				\item Branches
+				\item \texttt{git log} \\auch mit den Zusätzen
+				\begin{itemize}
+					\item[] \texttt{--oneline}
+					\item[] \texttt{--graph}
+				\end{itemize}
+				\item \texttt{git diff}
+				\item \texttt{git pull --rebase}
+				\item \texttt{git commit --amend}
+				\item \texttt{git fetch} vs. \texttt{git pull}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Hilfe, so viele Befehle! Das merk ich mir nie!}
+	Musst du auch nicht, es gibt ja Cheat Sheets:
+	\begin{itemize}
+		%\item \href{https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf}{GitHub git Cheat Sheet}
+		\item \href{https://education.github.com/git-cheat-sheet-education.pdf}{GitHub git Cheat Sheet Education}
+		\item \href{https://www.git-tower.com/blog/git-cheat-sheet/}{Cheat Sheet von Tower}
+		\item und viele mehr - einfach mal googlen
+	\end{itemize}
+	Außerdem gibt es zahlreiche Guides und Einführungen im Netz:
+	\begin{itemize}
+		\item \href{https://rogerdudler.github.io/git-guide/index.de.html}{git - Der einfache Einstieg}
+		\item \href{http://juristr.com/blog/2013/04/git-explained/}{Git Explained: For Beginners}
+		\item und viele mehr, schaut einfach, was euch anspricht!
+	\end{itemize}
+	\begin{description}[Tipp:]
+		\item[\alert{Tipp:}] Unbedingt über Good Practices informieren!
+	\end{description}
+\end{frame}
+
+
+% git commit ...
+%   -> Änderungen zu einem Paket zusammenfassen, dass dann als gesamtes Rückgängig gemacht werden kann (bzw. Stand, zu dem man springen kann)
+% git push ...
+%   -> Wenn man online ein Repo hat, kann man hier alles hoch laden, alle Änderungen werden einzeln übertragen, sodass alle die Änderungen einzeln sehen können
+%
+% -> in dem zusammenhang auch gitHub zeigen (noch mal für das education pack werben!)
+% super Seite, um projekt online zu sichern (gibt aber auch private gehostete Alternativen)
+% kann man sich trauen, vom fusionforge abzuraten? -> ansonsten gekonnt auslassen
+%
+% git pull
+%   -> herunterladen der Änderungen, die andere gemacht haben
+%
+%
+% git checkout -b new_branch
+% arbeit
+% Commit
+%
+% git merge
+%   -> was, wenn sich Änderungen mehrerer Menschen überschneiden?
+%
+%
+% generell:
+% git clone
+%   -> Herunterladen der gesamten history eines Projektes (z.B. um mit zu machen)
+%   -> Zeigen!
+
+
+
+% Good Practices:
+% - Master-Branch immer sauber halten (am besten auf anderem Branch arbeiten)
+% - gitignore Dateien benutzen
+% - https://education.github.com/git-cheat-sheet-education.pdf
+
+\section{Ausblick}
+
+%\begin{frame}{Linux Install Party}
+%	\begin{columns}[onlytextwidth]
+%		\begin{column}{0.5\textwidth}
+%			\includegraphics[width=0.85\textwidth, keepaspectratio]{assets/04_git/hacken101_linux_install_party}
+%		\end{column}
+%		\begin{column}{0.5\textwidth}
+%			\large Lust, ein Linux-basiertes Betriebssystem zu installieren? \\[.5cm]
+%			\normalsize Bei der \alert{Linux Install Party} werdet ihr gemeinsam mit euren Kommilitonen eine Linux-Distribution eurer Wahl installieren. \\[.25cm]
+%			Dabei steht man euch natürlich mit Rat und Tat zur Seite.
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+
+%\begin{frame}{NEU: Hacken 101}
+%	\begin{columns}[onlytextwidth]
+%		\begin{column}{0.5\textwidth}
+%			\includegraphics[width=0.85\textwidth, keepaspectratio]{assets/04_git/hacken101_unix_vim}
+%		\end{column}
+%		\begin{column}{0.5\textwidth}
+%			\large Die Veranstaltungsreihe \alert{Hacken 101} stellt Themen abseits der normalen Lehrveranstaltungen vor. \\[.5cm]
+%			\normalsize Unter anderem zu:
+%			\begin{itemize}
+%				\item Unix \& Vim
+%				\item SSH
+%				\item PHP
+%				\item Git
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+
+%\begin{frame}{Wahlen}
+%	\centering \Large Der FSR soll \textbf{deine} Interessen vertreten!\\Deine Stimme zählt.\\
+%	\Huge \alert{\textbf{Also geh wählen!}}
+%	
+%	\normalsize
+%	\flushleft
+%	
+%	\textbf{Jeweils von 9 bis 17 Uhr:}\\
+%	\begin{itemize}
+%	\item Dienstag, 27.11. - HSZ
+%	\item Mittwoch, 28.11. - APB (direkt im Foyer)
+%	\item Donnerstag, 29.11. - APB (direkt im Foyer)
+%	\end{itemize}
+%	
+%	\textbf{Nicht in Dresden?}\\Bis 22.11. persönlich Unterlagen für Briefwahl besorgen!
+%	
+%	Weitere Infos findet ihr unter \url{https://www.ifsr.de/wahlen}.
+%\end{frame}
+
+%\begin{frame}{Nächster Spieleabend}
+%		\medskip
+%		\begin{columns}[onlytextwidth]
+%			\begin{column}{0.5\textwidth}
+%				\begin{itemize}
+%					\item \textbf{Wann?} 30. Januar
+%					\item \textbf{Wo?} Erdgeschoss des APB
+%					\item \textbf{Wie spät?} 18:30 Uhr
+%				\end{itemize} \ \\[.25cm]
+%
+%				Kommt vorbei, vergesst den Uni-Alltag und habt Spaß! :) \\ \ \\
+%				Für Knabbereien und Getränke ist gesorgt!
+%			\end{column}
+%			\begin{column}{0.5\textwidth}
+%				\centering \includegraphics[width=0.9\textwidth, keepaspectratio]{assets/04_git/spieleabend}
+%		\end{column}
+%		\end{columns}
+%\end{frame}
+
+\begin{frame}{Nächstes Treffen}
+	\centering \Huge \alert{\textbf{Nächster Termin:}} \\
+	\Large \neuerTermin \\[.7cm]
+	\normalsize\flushleft
+	Freut euch auf:
+	\begin{itemize}
+		\item Wie geht es weiter? - Ausblick auf kommende Semester
+		\item Tipps zum Stundenplanbau
+		\item Wie gehe ich mit dem Prüfungsamt um?
+		\item Und\dots ein paar letzte Tipps bevor ihr in die Welt der höheren Semester entlassen werdet :)
+	\end{itemize}
+\end{frame}
+
+\end{document}
